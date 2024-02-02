@@ -1,10 +1,16 @@
+import Dashboard from './components/Dashboard';
 import SignIn from './components/SignIn';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <SignIn/>
+       <Router>
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
