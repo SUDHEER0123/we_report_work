@@ -9,7 +9,7 @@ const SignIn = () => {
     <div className="bg-[#F6F6F6] flex flex-col items-center gap-20 w-full h-screen">
       <div className="w-full flex justify-center items-center gap-4 mt-12">
         <img src={logo} alt="logo" className="w-[117px] h-[129px]"/>
-        <p className="text-black text-[60px] font-medium leading-[30px] text-center">
+        <p className="text-black text-[60px] font-medium leading-[30px] text-center font-fredoka">
           We Report Work
         </p>
       </div>
