@@ -18,6 +18,7 @@ import Footer from "../Footer";
 import personIcon from "../../assests/person.svg";
 import msgIcon from "../../assests/msg.svg";
 import dotcon from "../../assests/image 33.png";
+import { Link } from "react-router-dom";
 function Dashboard() {
   const [day, setDay] = useState("Today");
   return (
@@ -201,8 +202,8 @@ function Dashboard() {
               </div>
 
               <div className="my-10 px-4 w-full flex justify-between items-center">
-                 {/* figma is not opening in dev mode so unable to export the icon for this...that's why i am using the image but here we need to add four different icon as button */}
-                 <img
+                {/* figma is not opening in dev mode so unable to export the icon for this...that's why i am using the image but here we need to add four different icon as button */}
+                <img
                   src={shareOption}
                   alt="icon"
                   className="w-[336px] h-[95px]"
@@ -224,12 +225,15 @@ function Dashboard() {
             </div>
 
             <div className="w-full flex justify-between">
-              <button className="flex items-center gap-2 px-3 border-[3px] border-[#3D66FB] rounded-[30px] ">
+              <Link
+                to="/dashboard_manager"
+                className="flex items-center gap-2 px-3 border-[3px] border-[#3D66FB] rounded-[30px] hover:bg-white hover:bg-opacity-50 "
+              >
                 <img src={personIcon} alt="person icon" />
                 <p className="text-[15px] leading-[55px] font-bold text-black">
                   Switch to Manager View
                 </p>
-              </button>
+              </Link>
               <button className="flex items-center gap-2 px-3 border-[3px] border-[#3D66FB] rounded-[30px] ">
                 <img
                   src={msgIcon}

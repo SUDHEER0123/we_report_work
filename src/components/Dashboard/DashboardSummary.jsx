@@ -5,13 +5,19 @@ import logo from "../../assests/LOGO 12.png";
 import giftIcon from "../../assests/gift.png";
 import coinIcon from "../../assests/coin.png";
 import dotIcon from "../../assests/image 33.png";
-import personIcon from "../../assests/person.svg";
+import mailIcon from "../../assests/Gmail_icon_(2020) 1.svg";
+import g_calendar from "../../assests/Group.svg";
+import driveIcon from "../../assests/drive.svg";
+import penIcon from "../../assests/image 46.png";
+import GmailCard from "../Cards/GmailCard";
+import { gmailData, CalendarData, DriveData } from "./Data";
+import CalendarCard from "../Cards/CalendarCard";
+import DriveCard from "../Cards/DriveCard";
+import shareOption from "../../assests/shareit 6.png";
+import Footer from "../Footer";
 import msgIcon from "../../assests/msg.svg";
-import { Link } from "react-router-dom";
-import SelectDropdown from "../InputComponents/SelectDropdown";
-function ManagerDashboard() {
+function DashboardSummary() {
   const [day, setDay] = useState("Today");
-  const options = ["default", "person 1", "person 2", "person 3"];
   return (
     <>
       <div className="w-full bg-[#F6F6F6] flex flex-col px-40 py-2">
@@ -21,9 +27,9 @@ function ManagerDashboard() {
           </p>
           <div className="w-full flex justify-end">
             <p className="px-2 bg-white text-xs leading-[30px] font-normal rounded-md text-black">
-              {" "}
-              Tokens are inputs/outputs to/from the summarisation model (4 char
-              ~= 1 token).
+              Credits are $ that you have left in your account.
+              <span className="text-[#3D66FB]"> Learn more</span> about how
+              credit are utilized.
             </p>
           </div>
           <div className="w-full flex justify-center items-center gap-2">
@@ -58,7 +64,7 @@ function ManagerDashboard() {
                 alt="gift icon"
                 className="w-[62px] h-[62px]"
               />
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-center">
                 <p className="flex items-center text-[20px] leading-[40px] font-bold text-opacity-80 text-black uppercase">
                   Credits
                   <img
@@ -68,7 +74,7 @@ function ManagerDashboard() {
                   />
                 </p>
                 <p className="text-[40px] leading-[20px] font-black font-notoSans">
-                  1000
+                  $2
                 </p>
               </div>
             </div>
@@ -82,11 +88,11 @@ function ManagerDashboard() {
           <div className="w-full flex items-center justify-between">
             <div className="flex flex-col border-l-8 my-2 pl-2 border-[#FBBC05] rounded-sm">
               <p className="text-[25px] font-bold leading-[55px] text-black text-opacity-80">
-                Your team member’s work summary
+                Your work summary
               </p>
               <p className="text-xs font-normal leading-[30px]">
-                Ask all your team members to save their summary. You can only
-                view the saved summaries.
+                Connect your <span className="text-[#4285F4]">Google </span>
+                accounts to see the summary of your work activities. Ready?
               </p>
             </div>
             <div className="flex gap-4">
@@ -127,20 +133,57 @@ function ManagerDashboard() {
               />
             </div>
           </div>
+          <div className="w-full flex justify-evenly border rounded-[100px] shadow-xl bg-[#FFFFFF]">
+            <div className="w-[270px] h-[50px] rounded-[100px] bg-[#FFFFFF] flex justify-center items-center gap-2 cursor-pointer hover:shadow-xl hover:z-10">
+              <p className="text-black text-opacity-80 font-bold text-[20px] leading-[55px] font-sans">
+                All Tools
+              </p>
+            </div>
+
+            <div className="w-[270px] h-[50px] rounded-[100px] bg-[#FFFFFF] flex justify-center items-center gap-2 cursor-pointer hover:shadow-xl hover:z-10">
+              <img
+                src={mailIcon}
+                alt="mail icon"
+                className="w-[24px] h-[18px]"
+              />
+              <p className="text-black text-opacity-80 font-bold text-[20px] leading-[55px] font-sans">
+                Gmail
+              </p>
+            </div>
+
+            <div className="w-[270px] h-[50px] rounded-[100px] bg-[#FFFFFF] flex justify-center items-center gap-2 cursor-pointer hover:shadow-xl hover:z-10">
+              <img
+                src={g_calendar}
+                alt="google calendar"
+                className="w-[24px] h-[18px]"
+              />
+              <p className="text-black text-opacity-80 font-bold text-[20px] leading-[55px] font-sans">
+                Calendar
+              </p>
+            </div>
+
+            <div className="w-[270px] h-[50px] rounded-[100px] bg-[#FFFFFF] flex justify-center items-center gap-2 cursor-pointer hover:shadow-xl hover:z-10">
+              <img
+                src={driveIcon}
+                alt="google drive"
+                className="w-[24px] h-[18px]"
+              />
+              <p className="text-black text-opacity-80 font-bold text-[20px] leading-[55px] font-sans">
+                Drive
+              </p>
+            </div>
+          </div>
 
           <div className="w-full flex flex-col gap-10 pt-2">
-            <div className="w-full flex flex-col bg-[#FFFFFF] bg-opacity-50 rounded-md shadow-md gap-8 pl-4 pb-4">
-              <SelectDropdown options={options} />
-
-             
-              <div className="w-full pl-1 flex flex-col gap-10 pb-10">
-              <p className="text-[18px] font-bold leading-[23.44px] text-black">
-                Summary for the Day: September 8, 2023 [from Gmail]{" "}
-              </p>
-              <p className="text-[18px] font-normal leading-[23.44px] text-black">
-                Today was a busy day for you, with a mix of email communications
-                and calendar events:
-              </p>
+            <div className="w-full flex flex-col bg-[#FFFFFF80] rounded-md  shadow-md items-center">
+              <div className="w-full flex flex-col gap-10 pb-10 pt-8 pl-10">
+                <p className="text-[18px] font-bold leading-[23.44px] text-black">
+                  Summary for the Day: September 8, 2023 [from Gmail]{" "}
+                </p>
+                <p className="text-[18px] font-normal leading-[23.44px] text-black">
+                  Today was a busy day for you, with a mix of email
+                  communications and calendar events:
+                </p>
                 <ol>
                   <li className="text-[18px] font-bold leading-[23.44px] text-black">
                     Email :
@@ -199,18 +242,38 @@ function ManagerDashboard() {
                   </ul>
                 </ol>
               </div>
+
+              <div className="my-10 px-4 w-full flex justify-between items-center pr-10">
+                {/* figma is not opening in dev mode so unable to export the icon for this...that's why i am using the image but here we need to add four different icon as button */}
+                <img
+                  src={shareOption}
+                  alt="icon"
+                  className="w-[336px] h-[95px]"
+                />
+                <div className="flex flex-col gap-2 justify-center items-center">
+                  <button className="p-2 bg-[#3D66FB] bg-opacity-80 shadow-md border rounded-md text-[#FFFFFF] text-[20px] leading-[26px] font-bold">
+                    Sammarize
+                  </button>
+
+                  <span className="text-[#3D66FB] text-[15px] font-bold">
+                    [Estimated Credits : $0.003]
+                  </span>
+                </div>
+
+                <button className="flex gap-1 items-center px-2 bg-[#D4D9DC] bg-opacity-80 shadow-md border rounded-md">
+                  <img
+                    src={penIcon}
+                    alt="pen icon"
+                    className="w-[30px] h-[30px]"
+                  />
+                  <p className="text-[15px] leading-[44px] font-bold">
+                    Edit Template
+                  </p>
+                </button>
+              </div>
             </div>
 
-            <div className="w-full flex justify-between pb-4">
-              <Link
-                to="/dashboard"
-                className="flex items-center gap-2 px-3 border-[3px] border-[#3D66FB] rounded-[30px] hover:bg-white hover:bg-opacity-50"
-              >
-                <img src={personIcon} alt="person icon" />
-                <p className="text-[15px] leading-[55px] font-bold text-black">
-                  Switch to your Summary
-                </p>
-              </Link>
+            <div className="w-full flex justify-end">
               <button className="flex items-center gap-2 px-3 border-[3px] border-[#3D66FB] rounded-[30px] ">
                 <img
                   src={msgIcon}
@@ -224,8 +287,20 @@ function ManagerDashboard() {
             </div>
           </div>
         </div>
+
+        <div className="w-full flex flex-col gap-8 mt-14">
+          <div className="flex flex-col gap-20">
+            <GmailCard data={gmailData} exclusion={false} />
+
+            <CalendarCard data={CalendarData} exclusion={false} />
+
+            <DriveCard data={DriveData} exclusion={false} />
+
+            <Footer />
+          </div>
+        </div>
       </div>
     </>
   );
 }
-export default ManagerDashboard;
+export default DashboardSummary;
